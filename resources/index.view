@@ -1,0 +1,10 @@
+<svg class="background">
+  <text id="steps" />
+  <text id="time" />
+  <text id="date" />
+   <text id="sugar" />
+   <image id="digit_1" href="images/0.png" x="2%" y="40%" width="24%" height="24%"/>
+  <image id="digit_2" href="images/9.png" x="26%" y="40%" width="24%" height="24%"/>
+  <image id="digit_3" href="images/3.png" x="50%" y="40%" width="24%" height="24%"/>
+  <image id="digit_4" href="images/4.png" x="74%" y="40%" width="24%" height="24%"/>
+</svg>

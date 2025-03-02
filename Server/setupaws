@@ -1,0 +1,19 @@
+sudo yum install nodejs
+
+sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+sudo yum install certbot-apache
+sudo yum install httpd
+sudo svctl start httpd
+
+cd /etc/httpd/conf.d
+sudo vi bsgw.ddns.net.conf
+
+<VirtualHost *:80>
+    ServerName bsgw.ddns.net
+    DocumentRoot /var/www/html
+    ServerAlias bsgw.ddns.net
+    ErrorLog /var/www/error.log
+    CustomLog /var/www/requests.log combined
+</VirtualHost>
+

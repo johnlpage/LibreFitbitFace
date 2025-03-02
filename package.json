@@ -1,0 +1,38 @@
+{
+  "name": "carol",
+  "version": "0.1.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@fitbit/sdk": "~6.1.0",
+    "@fitbit/sdk-cli": "^1.7.3"
+  },
+  "resources": [
+    {
+      "type": "bitmap",
+      "name": "NO_NINE",
+      "file": "images/9.png"
+    }
+  ],
+  "fitbit": {
+    "appUUID": "5dd522bd-a6a8-40e9-9436-9575d0f7d8d9",
+    "appType": "clockface",
+    "appDisplayName": "Carol",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "#ffffff",
+    "requestedPermissions": [   "access_internet",
+    "run_background",
+    "access_activity"
+  ],
+    "buildTargets": [
+      "atlas",
+      "vulcan"
+    ],
+    "i18n": {},
+    "defaultLanguage": "en-US"
+  },
+  "scripts": {
+    "build": "fitbit-build",
+    "debug": "fitbit"
+  }
+}
