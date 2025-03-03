@@ -11,8 +11,8 @@ function fetchData() {
     .then(data => {
       //  console.log(JSON.stringify(data));
       if (peerSocket.readyState === peerSocket.OPEN) {
-        console.log(`BS Upadte: ${data.Value}`);
-        peerSocket.send({ bs: data.Value});
+        console.log(`BS Upadte: ${JSON.stringify(data)}`);
+        peerSocket.send(data);
       }
     })
     .catch(err => console.error("Error fetching data:", err));
