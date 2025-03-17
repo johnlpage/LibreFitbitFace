@@ -1,22 +1,33 @@
 import { me } from "companion";
-import { peerSocket } from "messaging";
 
+import * as messaging from "messaging";
+
+me.wakeinterval=300000;
 
 const API_URL = "https://bsgw.ddns.net:24601/last-reading"; // Replace with your endpoint
-const POLL_INTERVAL = 30 *  1000; // 5 seconds
+const POLL_INTERVAL = 120 *  1000; // 2 mins
 // Function to fetch data from an API
 function fetchData() {
   fetch(API_URL)
     .then(response => response.json())
     .then(data => {
       //  console.log(JSON.stringify(data));
-      if (peerSocket.readyState === peerSocket.OPEN) {
-        console.log(`BS Upadte: ${JSON.stringify(data)}`);
-        peerSocket.send(data);
+      if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
+        console.log(`Companion Read BS update: ${JSON.stringify(data)}`);
+        messaging.peerSocket.send(data);
+      } else {
+        console.log("Device sleeping");
       }
     })
     .catch(err => console.error("Error fetching data:", err));
 }
+
+// Listen for incoming messages from the watch
+messaging.peerSocket.onmessage = function(evt) {
+  console.log("Received ping from device:", evt.data);
+  fetchData();
+};
+
 // Fetch data when the companion starts
 fetchData();
 // Set an interval to poll data every 5 minutes
