@@ -1,9 +1,0 @@
-{
-    "type": "module",
-    "dependencies": {
-      "@diakem/libre-link-up-api-client": "^0.7.1",
-      "express": "^4.21.2",
-      "libre-link-unofficial-api": "^1.0.0-alpha.6"
-    }
-  }
-  
