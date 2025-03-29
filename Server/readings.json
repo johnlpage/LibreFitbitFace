@@ -1,0 +1,201 @@
+{
+  "status": 0,
+  "data": [
+    {
+      "id": "8b0f230a-0997-11f0-93ab-3e8c2661dd4b",
+      "patientId": "47158fd7-92d9-e711-812b-02d09c370615",
+      "country": "GB",
+      "status": 2,
+      "firstName": "Carol",
+      "lastName": "Page",
+      "targetLow": 70,
+      "targetHigh": 180,
+      "uom": 0,
+      "sensor": {
+        "deviceId": "",
+        "sn": "MH01CT2XUR",
+        "a": 1742739548,
+        "w": 60,
+        "pt": 3,
+        "s": true,
+        "lj": false
+      },
+      "alarmRules": {
+        "c": true,
+        "h": {
+          "th": 240,
+          "thmm": 13.3,
+          "d": 1440,
+          "f": 0.1
+        },
+        "f": {
+          "th": 55,
+          "thmm": 3,
+          "d": 30,
+          "tl": 10,
+          "tlmm": 0.6
+        },
+        "l": {
+          "on": true,
+          "th": 70,
+          "thmm": 3.9,
+          "d": 1440,
+          "tl": 10,
+          "tlmm": 0.6
+        },
+        "nd": {
+          "i": 20,
+          "r": 5,
+          "l": 6
+        },
+        "p": 5,
+        "r": 5,
+        "std": {}
+      },
+      "glucoseMeasurement": {
+        "FactoryTimestamp": "3/29/2025 11:04:24 AM",
+        "Timestamp": "3/29/2025 11:04:24 AM",
+        "type": 1,
+        "ValueInMgPerDl": 198,
+        "TrendArrow": 3,
+        "TrendMessage": null,
+        "MeasurementColor": 2,
+        "GlucoseUnits": 0,
+        "Value": 11,
+        "isHigh": false,
+        "isLow": false
+      },
+      "glucoseItem": {
+        "FactoryTimestamp": "3/29/2025 11:04:24 AM",
+        "Timestamp": "3/29/2025 11:04:24 AM",
+        "type": 1,
+        "ValueInMgPerDl": 198,
+        "TrendArrow": 3,
+        "TrendMessage": null,
+        "MeasurementColor": 2,
+        "GlucoseUnits": 0,
+        "Value": 11,
+        "isHigh": false,
+        "isLow": false
+      },
+      "glucoseAlarm": null,
+      "patientDevice": {
+        "did": "8a3177de-f43a-11ef-97a0-761636fc9f4f",
+        "dtid": 40066,
+        "v": "2.12.0",
+        "l": true,
+        "ll": 70,
+        "h": true,
+        "hl": 279,
+        "u": 1740954035,
+        "fixedLowAlarmValues": {
+          "mgdl": 60,
+          "mmoll": 3.3
+        },
+        "alarms": true,
+        "fixedLowThreshold": 0
+      },
+      "created": 1742920692
+    },
+    {
+      "id": "f911e2a0-0886-11f0-bbb3-424327797916",
+      "patientId": "3b7a998e-5057-e611-8126-02d09c370615",
+      "country": "GB",
+      "status": 2,
+      "firstName": "John",
+      "lastName": "Page",
+      "targetLow": 70,
+      "targetHigh": 180,
+      "uom": 0,
+      "sensor": {
+        "deviceId": "",
+        "sn": "MH01C4ZXQM",
+        "a": 1742801585,
+        "w": 60,
+        "pt": 3,
+        "s": true,
+        "lj": false
+      },
+      "alarmRules": {
+        "c": true,
+        "h": {
+          "th": 240,
+          "thmm": 13.3,
+          "d": 1440,
+          "f": 0.1
+        },
+        "f": {
+          "th": 55,
+          "thmm": 3,
+          "d": 30,
+          "tl": 10,
+          "tlmm": 0.6
+        },
+        "l": {
+          "on": true,
+          "th": 70,
+          "thmm": 3.9,
+          "d": 1440,
+          "tl": 10,
+          "tlmm": 0.6
+        },
+        "nd": {
+          "i": 20,
+          "r": 5,
+          "l": 6
+        },
+        "p": 5,
+        "r": 5,
+        "std": {}
+      },
+      "glucoseMeasurement": {
+        "FactoryTimestamp": "3/29/2025 10:29:46 AM",
+        "Timestamp": "3/29/2025 10:29:46 AM",
+        "type": 1,
+        "ValueInMgPerDl": 171,
+        "TrendArrow": 3,
+        "TrendMessage": null,
+        "MeasurementColor": 1,
+        "GlucoseUnits": 0,
+        "Value": 9.5,
+        "isHigh": false,
+        "isLow": false
+      },
+      "glucoseItem": {
+        "FactoryTimestamp": "3/29/2025 10:29:46 AM",
+        "Timestamp": "3/29/2025 10:29:46 AM",
+        "type": 1,
+        "ValueInMgPerDl": 171,
+        "TrendArrow": 3,
+        "TrendMessage": null,
+        "MeasurementColor": 1,
+        "GlucoseUnits": 0,
+        "Value": 9.5,
+        "isHigh": false,
+        "isLow": false
+      },
+      "glucoseAlarm": null,
+      "patientDevice": {
+        "did": "7f84099c-f83b-11ef-8b33-2a8c16cf67ad",
+        "dtid": 40066,
+        "v": "2.12.0",
+        "l": true,
+        "ll": 70,
+        "hl": 240,
+        "u": 1741470885,
+        "fixedLowAlarmValues": {
+          "mgdl": 60,
+          "mmoll": 3.3
+        },
+        "alarms": true,
+        "fixedLowThreshold": 0
+      },
+      "created": 1742803624
+    }
+  ],
+  "ticket": {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU0ZmQyMzU4LTA4ODYtMTFmMC1hZDA1LWJlZDFkNzdkNzFmNCIsImZpcnN0TmFtZSI6IkpvaG4iLCJsYXN0TmFtZSI6IlBhZ2UiLCJjb3VudHJ5IjoiR0IiLCJyZWdpb24iOiJldTIiLCJyb2xlIjoicGF0aWVudCIsInVuaXRzIjowLCJwcmFjdGljZXMiOltdLCJjIjowLCJzIjoibGx1LmFuZHJvaWQiLCJzaWQiOiI3MTgyYWY3ZS1kNmE1LTQwNzctYWQzNi02YjljZjY3YTE1ZWEiLCJleHAiOjE3NTg3OTgzMTgsImlhdCI6MTc0MzI0NjMxOCwianRpIjoiOTJhYmRiMDQtZjAyMS00OWEwLWFjNTktNzZkNWI4OGZjNzQxIn0.2TBUiSulrTYG67Ir1DloZPT2NfbtQ5f7CTbntPrDZ_g",
+    "expires": 1758798318,
+    "duration": 15552000000
+  }
+}

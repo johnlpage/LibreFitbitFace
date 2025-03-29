@@ -1,0 +1,44 @@
+.background {
+  viewport-fill: black;
+}
+
+#date {
+  font-size: 50;
+  font-family: System-Bold;
+  text-length: 10;
+  text-anchor: start;
+  x: 5%;
+  y: 20%;
+  fill: white;
+}
+
+#steps {
+  font-size: 50;
+  font-family: System-Bold;
+  text-length: 5;
+  text-anchor: end;
+  x: 95%;
+  y: 20%;
+  fill: white;
+  
+}
+
+#time {
+  font-size: 30;
+  font-family: System-Bold;
+  text-length: 32;
+  text-anchor: middle;
+  x: 50%; 
+  y: 20%;
+  fill: white;
+}
+
+#sugar {
+  font-size: 60;
+  font-family: System-Bold;
+  text-length: 32;
+  text-anchor: middle;
+  x: 50%;
+  y: 95%;
+  fill: greenyellow;
+}
