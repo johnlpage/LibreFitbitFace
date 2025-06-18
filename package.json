@@ -19,11 +19,13 @@
     "appType": "clockface",
     "appDisplayName": "Carol",
     "iconFile": "resources/icon.png",
-    "wipeColor": "#ffffff",
-    "requestedPermissions": [   "access_internet",
-    "run_background",
-    "access_activity"
-  ],
+    "wipeColor": "#000000",
+    "requestedPermissions": [
+      "access_internet",
+      "run_background",
+      "access_activity"
+    ],
+    "companionDefaultWakeInterval": 300000,
     "buildTargets": [
       "atlas",
       "vulcan"

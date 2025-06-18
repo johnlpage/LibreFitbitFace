@@ -29,9 +29,13 @@ async function saveReadingToFile(reading) {
 
 async function getInfo(client) {
     try {
-        //const readings = await client.read();
         const readings = await client.fetchConnections();
+        for( let u of readings.data) {
+            const {firstName , lastName, glucoseItem} = u;
+            console.log(`User: ${firstName} ${lastName}, Glucose: ${glucoseItem.Value} ${glucoseItem.Timestamp}`);
+        }
         saveReadingToFile(readings);
+        console.log('Data fetched and saved successfully:');
     } catch (e) {
         console.error('Error fetching data:', e.message);
     }
@@ -51,9 +55,10 @@ async function start() {
         }
        // await getInfo(client);
         // Periodically call getInfo every minute
+         await getInfo(client);
         setInterval(async () => {
             await getInfo(client);
-        }, 5 * 60 * 1000);  // 60 seconds * 1000 milliseconds
+        }, 2 * 60 * 1000);  // 60 seconds * 1000 milliseconds
     } catch (e) {
         console.error('Login failed:', e.message);
     }
@@ -65,15 +70,23 @@ app.get('/last-reading/:userId?', async (req, res) => {
 
     const filePath = path.join(process.cwd(), 'readings.json');
     let userId = req.params.userId;
+  
     if (!userId) {
-       userId = 0; // Carol
-    } 
+        userId = "Carol"; // Carol
+       console.log("Request from Carol , using default userId:" + req.headers['user-agent']);
+    }  else {
+
+        console.log(`Request from John for userId ${userId} ${req.headers['user-agent']}`);
+    }
 
     try {
         const data = await fs.readFile(filePath, 'utf8');
         const readings = JSON.parse(data);
 
-        res.json(readings.data[userId].glucoseItem)
+        const user = readings.data.find(user => user.firstName === userId)
+        //console.log(user);
+        user.glucoseItem.name = userId
+        res.json(user.glucoseItem)
     } catch (error) {
         console.error(`Failed to read file: ${error.message}`);
         res.status(500).json({ error: 'Internal Server Error' });

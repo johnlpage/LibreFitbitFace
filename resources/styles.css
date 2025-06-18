@@ -3,7 +3,7 @@
 }
 
 #date {
-  font-size: 50;
+  font-size: 46;
   font-family: System-Bold;
   text-length: 10;
   text-anchor: start;
@@ -13,11 +13,11 @@
 }
 
 #steps {
-  font-size: 50;
+  font-size: 46;
   font-family: System-Bold;
   text-length: 5;
   text-anchor: end;
-  x: 95%;
+  x: 82%;
   y: 20%;
   fill: white;
   
@@ -37,8 +37,8 @@
   font-size: 60;
   font-family: System-Bold;
   text-length: 32;
-  text-anchor: middle;
-  x: 50%;
+  text-anchor: start;
+  x: 30%;
   y: 95%;
   fill: greenyellow;
 }

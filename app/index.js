@@ -3,11 +3,8 @@ import clock from "clock";
 import { today } from "user-activity";
 import * as messaging from "messaging";
 import { me as appbit } from "appbit";
-import { vibration } from "haptics";
 
-let lastBS = '';
-let lastBSTime = new Date();
-let prevBS = 0;
+let latestData;
 
 function zeroPad(i) {
   if (i < 10) {
@@ -36,52 +33,39 @@ function parseCustomDate(dateStr) {
   return new Date(year, month - 1, day, hours, minutes, seconds);
 }
 
-
 // Listen for messages from the companion
-
-
 messaging.peerSocket.onmessage = evt => {
   if (evt.data) {
-    const newBS = evt.data.Value;
-
-    let d = parseCustomDate(evt.data.Timestamp);
-    lastBSTime = d;
-    //console.log(`Reading update ${d.toISOString()}`);
-    let BSLabel = document.getElementById("sugar");
-    BSLabel.text = lastBS;
-    if (lastBS >= 4 && newBS < 4) {
-      vibration.start("alert");
-    }
-    lastBS = newBS
-    let now = evt.date;
-    showBS(now);
+    latestData = evt.data
+   // console.log(`Received data`);
+    showBS(null); //Update on receipt
   }
 };
-
-
-let myElement = document.getElementById("bg");
-myElement.addEventListener("click", () => {
-  if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
-    messaging.peerSocket.send({ping:true});
-   // console.log("Ping!")
-  } else {
-   // console.log("The connection is not open.");
-  }
-
-});
 
 
 // Update the clock every minute
 clock.granularity = "minutes";
 
-// Get a handle on the <text> element
+let clickCount = 0;
+let myElement = document.getElementById("bg");
+myElement.addEventListener("click", () => {
+  clickCount++;
+  if (clickCount > 4) {
+    appbit.exit();
+  }
+});
 
-//const BSLabel = document.getElementById("sugar");
+function requestUpdate() {
+  if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
+    messaging.peerSocket.send({ ping: true });
+  } else {
+    console.log("The companion is not available.");
+  }
+}
 
 // Update the <text> element every tick with the current time
 clock.ontick = (evt) => {
-
-
+  clickCount=0;
   let now = evt.date;
   let hours = now.getHours();
   const day = now.getDate();
@@ -97,29 +81,37 @@ clock.ontick = (evt) => {
   }
 
   let dateLabel = document.getElementById("date");
-  dateLabel.text = `${day} ${mstr[month-1]}`
-
-  showBS(now);
+  dateLabel.text = `${mstr[month - 1]} ${day}`
 
   if (appbit.permissions.granted("access_activity")) {
     let steps = today.adjusted.steps
     document.getElementById("steps").text = `${steps}`;
-  } else {
-   // console.log("Permissions idea")
   }
-
-
+  showBS(now);
 }
 
 function showBS(now) {
   let BSLabel = document.getElementById("sugar");
-  let readTime = 0;
-  if(now){
-   readTime = Math.floor((now.getTime() - lastBSTime.getTime()) / 60000);
-  }
-  BSLabel.text = `${(readTime < 15) ? `${lastBS}` : `-`}`;
-  if (readTime > 5) {
-   // appbit.exit()
+  const arrows = ["?", "↘", "→", "↓", "↗", "↑", "?"];
+
+  if (!latestData) {
+    BSLabel.text = "No data";
+    return;
   }
 
+ 
+
+  BSLabel.text = `${latestData.Value.toFixed(1)} ${arrows[latestData.TrendArrow - 1]}`
+
+  if (now) {
+    let bsDate = parseCustomDate(latestData.Timestamp.toString());
+    let diff = Math.floor((now.getTime() - bsDate.getTime()) / 1000);
+    console.log(`No update for ${diff}s`);
+    if(diff> 600) {
+      appbit.exit();
+    }
+    if (diff > 180) {
+      requestUpdate();
+    }
+  }
 }

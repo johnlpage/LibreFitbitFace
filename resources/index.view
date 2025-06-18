@@ -1,7 +1,10 @@
 <svg id="bg" class="background">
+  <image  href="images/footstep.png" x="82%" y="25" width="48" height="48" />
+<image  href="images/blood-drop.png" x="15%" y="82%" width="48" height="48" />
   <text id="steps" />
 
   <text id="date" />
+
    <text id="sugar" />
    <image id="digit_1" href="images/0.png" x="2%" y="25%" width="30%" height="50%"/>
   <image id="digit_2" href="images/9.png" x="24%" y="25%" width="30%" height="50%"/>
