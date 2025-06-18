@@ -45,7 +45,7 @@ async function start() {
     try {
         let password = await fs.readFile(".llpw", 'utf8');
         password = password.replace(/\r?\n|\r/g, '');
-        client = new LibreLinkClient({ email, password });
+        client = new LibreLinkClient({ email, password,cache:false });
         try {
             await client.login();
         }
